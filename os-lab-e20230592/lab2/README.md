@@ -25,7 +25,10 @@ Running `ls` only proves that a file or directory exists with a matching name in
 
 ## Plus / Challenge (only if you did them)
 
-*(N/A)*
+Completed the Live Checkpoint tasks:
+- Relative path from `TechCorp/Engineering/drafts` to `Legal/archive/first-original.txt`: `../../Legal/archive/first-original.txt`.
+- Number of `..` required: 2.
+- `cat reports/cash flow.txt` without quotes passes 2 arguments to `cat`.
 
 ## AI Note (optional)
 
