@@ -146,29 +146,22 @@ Screenshot of running on Windows:
 
 ![OS Layers Diagram](screenshots/task4_os_layers_diagram.png)
 
----
-
-
 ### Questions
 
 1. **What is `/proc`? Is it a real filesystem on disk?**
-   - `/proc` is a pseudo-filesystem (virtual filesystem) generated and maintained entirely in system memory by the Linux kernel. It is **not** a real filesystem stored on a physical hard disk; its files and directories are created on the fly when accessed to provide a direct interface to kernel data structures and system parameters.
+   - No, `/proc` is not a real filesystem stored on a physical disk. It is a pseudo-filesystem (virtual filesystem) maintained entirely in the system's volatile memory (RAM) by the Linux kernel, acting as a control and information hub for kernel and process data.
 
 2. **Monolithic kernel vs. microkernel — which type does Linux use?**
-   - Linux uses a **monolithic kernel** architecture, though it incorporates modern modular design features that allow kernel modules (drivers, filesystems) to be loaded and unloaded dynamically at runtime.
+   - Linux uses a **monolithic kernel**, where CPU scheduling, file systems, device drivers, and memory management all run together in kernel space for high performance.
 
 3. **What memory regions do you see in `/proc/self/maps`?**
-   - Typical memory regions include the process's executable code segment (text), read-only data, read-write data (data/bss), the stack, the heap, and memory mappings for shared libraries (such as `libc.so`), complete with their virtual address ranges and permission flags (e.g., `r-xp`, `rw-p`).
+   - Key memory regions include the executable code segment (`r-xp`), initialized and uninitialized data segments (`rw-p`), the heap, the stack, and shared library mappings (such as `libc.so.6` and the dynamic linker `ld-linux.so`).
 
 4. **Break down the kernel version string from `uname -a`.**
-   - `7.0.0` represents the major, minor, and patch version of the kernel.
-   - `-38` represents the specific revision/patch level from the distribution.
-   - `generic` indicates the kernel configuration flavor built for general-purpose hardware.
-   - `SMP` stands for Symmetric Multi-Processing (multi-core support).
-   - `PREEMPT_DYNAMIC` indicates the preemption model configured in the kernel for low-latency responsiveness.
+   - Example (`7.0.0-38-generic`): **7** is the major version, **0** is the minor version, **0** is the patch level, **-38** represents the Ubuntu revision/build number, and **generic** indicates the standard kernel configuration.
 
 5. **How does `/proc` show that the OS is an intermediary between programs and hardware?**
-   - `/proc` collects low-level hardware, CPU, memory, and process statistics directly from kernel space and exposes them safely to user-space applications. Because user programs cannot talk directly to hardware for security reasons, the OS acts as an intermediary by abstracting and presenting this structured data through virtual files.
+   - It exposes internal kernel data structures and hardware metrics (like CPU and memory stats) directly to user-space applications through virtual files, showing how the OS translates low-level system metrics into readable interfaces.
 
 ---
 
@@ -176,4 +169,4 @@ Screenshot of running on Windows:
 
 What did you learn from this activity? What was the most surprising difference between library functions and system calls?
 
-> Through this activity, I gained a deep understanding of how user-space applications communicate with the Linux kernel using POSIX system calls versus high-level library wrapper functions. The most surprising observation from the `strace` analysis was seeing how many extra setup and initialization calls (such as dynamic linker lookups, memory allocation via `brk`/`mmap`, and page protection adjustments) a simple library function triggers behind the scenes compared to a direct, minimal system call.
+> Through this activity, I gained a deep understanding of how user-space applications communicate with the Linux kernel through system calls rather than just relying on standard library functions. The most surprising observation during the `strace` analysis was realizing just how many background system calls—such as memory management (`brk`, `mmap`), page protection (`mprotect`), and dynamic linking setup—happen behind the scenes even in a simple program when using high-level library functions like `fprintf()`, compared to the clean, direct execution of low-level POSIX system calls.
