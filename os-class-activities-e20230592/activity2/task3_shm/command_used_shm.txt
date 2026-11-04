@@ -1,0 +1,4 @@
+gcc shm-producer.c -o producer -lrt
+gcc shm-consumer.c -o consumer -lrt
+./producer
+./consumer

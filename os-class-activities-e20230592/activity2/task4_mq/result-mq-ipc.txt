@@ -1,0 +1,2 @@
+Sender sent message.
+Receiver received: Hello via Message Queue!
