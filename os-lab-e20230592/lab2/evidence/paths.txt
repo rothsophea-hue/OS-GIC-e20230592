@@ -1,0 +1,4 @@
+Relative: mv "$file1" ../reports/
+Absolute: mv "$OSLAB_WORKSPACE/lab2/incoming/$file2" "$OSLAB_WORKSPACE/lab2/reports/"
+Error: cat: ../reports/payroll may.txt: No such file or directory
+Fix: cat ../../reports/$file1

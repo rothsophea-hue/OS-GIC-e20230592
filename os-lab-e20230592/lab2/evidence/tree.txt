@@ -1,0 +1,21 @@
+.
+├── evidence
+│   ├── checkpoint.txt
+│   ├── paths.txt
+│   └── tree.txt
+├── incoming
+├── reports
+│   ├── cash flow.txt
+│   ├── payroll may.txt
+│   └── README.txt
+└── TechCorp
+    ├── Engineering
+    │   └── drafts
+    ├── Legal
+    │   ├── archive
+    │   │   └── first-original.txt
+    │   ├── cash flow.txt
+    │   └── payroll may.txt
+    └── Support
+
+10 directories, 9 files
