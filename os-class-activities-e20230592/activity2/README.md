@@ -67,8 +67,7 @@ Processes tab tree view visually nests the child application clearly.
 
 Task 3: Shared Memory IPC
 Compilation & Execution
-Output
-Plaintext
+Output:
 Producer wrote message.
 Consumer read: Hello from Shared Memory Producer!
 Questions & Answers
@@ -94,8 +93,7 @@ Fails with ENOENT because the object doesn't exist yet.
 
 Task 4: Message Queue IPC
 Compilation & Execution
-Output
-Plaintext
+Output:
 Sender sent message.
 Receiver received: Hello via Message Queue!
 Questions & Answers
