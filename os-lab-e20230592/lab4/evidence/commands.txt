@@ -1,0 +1,10 @@
+grep '^clear,' data/events.csv | tee evidence/selected.txt
+grep '^clear,' data/events.csv | cut -d, -f2 | tee evidence/fields.txt
+grep '^clear,' data/events.csv | wc -l > evidence/normal.txt
+printf 'status,count\nready,2\n' > data/no-match.csv
+cp -- data/events.csv data/changed.csv
+printf 'clear,7\nclear-late,99\n' >> data/changed.csv
+grep '^clear,' data/no-match.csv | wc -l > evidence/edge.txt
+grep '^clear,' data/changed.csv | wc -l >> evidence/edge.txt
+cat data/missing.csv > evidence/stdout.txt 2> evidence/stderr.txt
+echo $? > evidence/status.txt
