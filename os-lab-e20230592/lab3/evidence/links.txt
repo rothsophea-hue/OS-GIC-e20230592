@@ -1,0 +1,25 @@
+
+=== BEFORE RENAME ===
+19145376 -rw-rw-r-- 2 gic-chin-rothsophea gic-chin-rothsophea 12 Nov 16 16:11 ocean-hard.txt
+19145460 lrwxrwxrwx 1 gic-chin-rothsophea gic-chin-rothsophea  9 Nov 16 16:15 ocean-soft.txt -> ocean.txt
+19145376 -rw-rw-r-- 2 gic-chin-rothsophea gic-chin-rothsophea 12 Nov 16 16:11 ocean.txt
+hard: version 755
+soft: version 755
+stored target: ocean.txt
+
+=== AFTER RENAME, BEFORE REPAIR ===
+19145376 -rw-rw-r-- 2 gic-chin-rothsophea gic-chin-rothsophea 12 Nov 16 16:11 ocean-hard.txt
+19145376 -rw-rw-r-- 2 gic-chin-rothsophea gic-chin-rothsophea 12 Nov 16 16:11 ocean-old.txt
+19145460 lrwxrwxrwx 1 gic-chin-rothsophea gic-chin-rothsophea  9 Nov 16 16:15 ocean-soft.txt -> ocean.txt
+hard: version 755
+stored target: ocean.txt
+soft: cat: ocean-soft.txt: No such file or directory
+
+=== AFTER REPAIR ===
+19145376 -rw-rw-r-- 2 gic-chin-rothsophea gic-chin-rothsophea 12 Nov 16 16:11 ocean-hard.txt
+19145376 -rw-rw-r-- 2 gic-chin-rothsophea gic-chin-rothsophea 12 Nov 16 16:11 ocean-old.txt
+19145460 lrwxrwxrwx 1 gic-chin-rothsophea gic-chin-rothsophea 13 Nov 16 16:17 ocean-soft.txt -> ocean-old.txt
+stored target: ocean-old.txt
+hard: version 755
+soft: version 755
+Decision: Stored a relative target because it ensures the symbolic link remains valid if the parent folder is relocated, whereas an absolute path would break if the absolute directory structure changes.

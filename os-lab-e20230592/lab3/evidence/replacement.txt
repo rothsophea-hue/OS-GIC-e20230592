@@ -1,0 +1,9 @@
+
+=== NEW FILE USING THE OLD NAME ===
+19145376 -rw-rw-r-- 2 gic-chin-rothsophea gic-chin-rothsophea 12 Nov 16 16:11 ocean-hard.txt
+19145376 -rw-rw-r-- 2 gic-chin-rothsophea gic-chin-rothsophea 12 Nov 16 16:11 ocean-old.txt
+19145460 lrwxrwxrwx 1 gic-chin-rothsophea gic-chin-rothsophea  9 Nov 16 16:15 ocean-soft.txt -> ocean.txt
+19145462 -rw-rw-r-- 1 gic-chin-rothsophea gic-chin-rothsophea 12 Nov 16 16:16 ocean.txt
+ocean.txt: version 834
+hard: version 755
+soft: version 834

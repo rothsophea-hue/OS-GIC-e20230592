@@ -1,0 +1,1 @@
+My guess differed because [!1]* matched any file starting with ocean followed by any character except 1, which included ocean2.txt and ocean12.txt.
