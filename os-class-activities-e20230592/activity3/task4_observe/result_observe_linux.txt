@@ -1,0 +1,43 @@
+gic-chi+ 2349707 2347894 2349707  0    5 14:34 pts/3    00:00:00 ./threads_observe
+gic-chi+ 2349707 2347894 2349709  0    5 14:34 pts/3    00:00:00 ./threads_observe
+gic-chi+ 2349707 2347894 2349710  0    5 14:34 pts/3    00:00:00 ./threads_observe
+gic-chi+ 2349707 2347894 2349711  0    5 14:34 pts/3    00:00:00 ./threads_observe
+gic-chi+ 2349707 2347894 2349712  0    5 14:34 pts/3    00:00:00 ./threads_observe
+gic-chi+ 2349746 2349173 2349746  0    1 14:34 pts/6    00:00:00 grep --color=auto threads_observe
+    PID    SPID TTY          TIME CMD
+2349707 2349707 pts/3    00:00:00 threads_observe
+2349707 2349709 pts/3    00:00:00 threads_observe
+2349707 2349710 pts/3    00:00:00 threads_observe
+2349707 2349711 pts/3    00:00:00 threads_observe
+2349707 2349712 pts/3    00:00:00 threads_observe
+--- /proc/2349707/task/ listing ---
+2349707
+2349709
+2349710
+2349711
+2349712
+Thread count:
+5
+=== ps -L command output ===
+    PID     LWP NLWP PSR STAT COMMAND
+2349707 2349707    5   7 Sl   threads_observe
+2349707 2349709    5   3 Sl   threads_observe
+2349707 2349710    5   4 Sl   threads_observe
+2349707 2349711    5   5 Sl   threads_observe
+2349707 2349712    5   4 Sl   threads_observe
+=== kthreadd children ===
+    PID    PPID PSR COMMAND
+      3       2   0 pool_workqueue_release
+      4       2   0 kworker/R-rcu_gp
+      5       2   0 kworker/R-sync_wq
+      6       2   0 kworker/R-kvfree_rcu_reclaim
+      7       2   0 kworker/R-slub_flushwq
+      8       2   0 kworker/R-netns
+     10       2   0 kworker/0:0H-kblockd
+     13       2   0 kworker/R-mm_percpu_wq
+     14       2   0 ksoftirqd/0
+     15       2   1 rcu_preempt
+     16       2   0 rcu_exp_par_gp_kthread_worker/0
+     17       2   0 rcu_exp_gp_kthread_worker
+     18       2   0 migration/0
+     19       2   0 kprobe-optimizer

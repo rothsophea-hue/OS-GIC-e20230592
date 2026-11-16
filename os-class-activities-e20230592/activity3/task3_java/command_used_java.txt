@@ -1,0 +1,30 @@
+            System.out.printf("Task %d started on thread %s%n", taskId, Thread.currentThread().getName());
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        ExecutorService pool = Executors.newFixedThreadPool(2);
+        for (int i = 1; i <= 6; i++) {
+            pool.submit(new Task(i));
+        }
+        pool.shutdown();
+        pool.awaitTermination(30, TimeUnit.SECONDS);
+    }
+}
+EOF
+
+  942  javac ThreadDemo.java
+  943  java ThreadDemo > result_thread_demo.txt 2>&1
+  944  cat result_thread_demo.txt
+  945  javac RunnableDemo.java
+  946  java RunnableDemo > result_runnable_demo.txt 2>&1
+  947  cat result_runnable_demo.txt
+  948  javac PoolDemo.java
+  949  java PoolDemo > result_pool_demo.txt 2>&1
+  950  cat result_pool_demo.txt
+  951  history | tail -n 30 > command_used_java.txt
